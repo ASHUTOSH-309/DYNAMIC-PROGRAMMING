@@ -5,18 +5,18 @@ using namespace std;
 
 int CalculateFibN(int N)
 {
-
     if (N <= 1)
         return N;
 
-    vector<int> dp(N + 1);
-    dp[0]=0;
-    dp[1]=1;
-
+    int ans;
+    int prev1=1;
+    int  prev2=0;
     for (int i = 2; i <= N; i++){
-        dp[i]=dp[i-1]+dp[i-2];
+        ans=prev1+prev2;
+        prev2=prev1;
+        prev1=ans;
     }
 
-    return dp[N];
+    return ans;
 }
 
